@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Largest Number Finder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: rgb(13, 211, 73);
+        }
+        p{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Largest Number Finder</h1>
+        <p>Enter numbers separated by commas:</p>
+        <textarea id="numberInput" rows="4" cols="50"></textarea><br>
+        <button onclick="findLargestNumber()">Find Largest Number</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function findLargestNumber() {
+            const numberInput = document.getElementById("numberInput").value;
+            const numbersArray = numberInput.split(",").map(num => parseFloat(num.trim()));
+
+            let largestNumber = null;
+            for (const number of numbersArray) {
+                if (largestNumber === null || number > largestNumber) {
+                    largestNumber = number;
+                }
+            }
+
+            if (largestNumber !== null) {
+                document.getElementById("result").textContent = `The largest number is: ${largestNumber}`;
+            } else {
+                document.getElementById("result").textContent = "No valid numbers entered.";
+            }
+            
+        }
+    </script>
+</body>
+</html>
