@@ -38,6 +38,11 @@
         function findLargestNumber() {
             const numberInput = document.getElementById("numberInput").value;
             const numbersArray = numberInput.split(",").map(num => parseFloat(num.trim()));
+            if(numbersArray.length==0)
+            {
+                 document.getElementById("result").textContent = "No valid numbers entered.";
+            }
+                
 
             let largestNumber = null;
             for (const number of numbersArray) {
